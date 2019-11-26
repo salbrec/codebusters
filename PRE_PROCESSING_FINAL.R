@@ -56,14 +56,15 @@ dtm <- CreateDtm(doc_vec = fulldata$Text, # character vector of documents
                  ngram_window = c(1, 2), # minimum and maximum n-gram length
                  stopword_vec = c(stopwords::stopwords("en"), # stopwords from tm
                                   stopwords::stopwords(source = "smart")), # this is the default value
-                 lower = TRUE, # lowercase - this is the default value
-                 remove_punctuation = TRUE, # punctuation - this is the default
-                 stem_lemma_function = function(x) SnowballC::wordStem(x, "porter"),
-                 remove_numbers = TRUE, # numbers - this is the default
-                 verbose = FALSE, # Turn off status bar for this demo
-                 cpus=2) # default is all available cpus on the system
+                 lower = TRUE, # lowercase 
+                 remove_punctuation = TRUE, # punctuation 
+                 stem_lemma_function = function(x) SnowballC::wordStem(x, "porter"),#some stemming
+                 remove_numbers = TRUE, # numbers 
+                 verbose = FALSE, # Turn off status bar
+                 cpus=2) # parallelizing
 
-Tf=TermDocFreq(dtm)
+
+Tf=TermDocFreq(dtm) #creating term frequency and tf-idf
 tfidf <- t(dtm[ , Tf$term ]) * Tf$idf
 tfidf <- t(tfidf)
 
@@ -101,5 +102,5 @@ synt=apply(train_data_full[train_data_full$class==1,],2,
 
 train_data_full=rbind(train_data_full,synt) #augmented train data
 
-write.table(train_data_full,"train_data_full.csv",row.names=FALSE)
-write.table(test_data_full,"test_data_full.csv",row.names=FALSE)
+write.table(train_data_full,"train_data_full_685.csv",row.names=FALSE)
+write.table(test_data_full,"test_data_full_685.csv",row.names=FALSE)
