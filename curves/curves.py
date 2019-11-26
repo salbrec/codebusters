@@ -118,7 +118,7 @@ if 'everything' in data_dir:
 	leg_pos = "lower right"
 plt.legend(loc=leg_pos, fontsize=fs_legend, title='Area under Curve', title_fontsize=fs_legend+2)
 plt.tight_layout()
-fig.savefig('PR-curve_%s.svg'%(file_name))
+fig.savefig('PR-curve_%s.png'%(file_name))
 plt.clf()
 
 
