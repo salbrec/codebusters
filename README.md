@@ -1,3 +1,1 @@
-Hello Codebusters!
-
-Alberto has the best T-shirt today :)
+Repository used to share code and data for the ECB coding challenge.
