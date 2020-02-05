@@ -1,1 +1,1 @@
-Repository used to share code and data for the ECB coding challenge.
+Repository used to share code and data for the ECB (European Central Bank) coding challenge.
